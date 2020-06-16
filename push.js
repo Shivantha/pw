@@ -7,8 +7,6 @@ let vapIdKeys =  {
 
 push.setVapidDetails('mailto:lakmal@applimundo.com', vapIdKeys.publicKey, vapIdKeys.privateKey)
 
-let sub = {
-
-}
+let sub = {};
 
 push.sendNotification(sub, 'test message');
