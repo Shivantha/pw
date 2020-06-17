@@ -7,6 +7,6 @@ let vapIdKeys =  {
 
 push.setVapidDetails('mailto:lakmal@applimundo.com', vapIdKeys.publicKey, vapIdKeys.privateKey)
 
-let sub = {"endpoint":"https://updates.push.services.mozilla.com/wpush/v2/gAAAAABe6XmckJH2GMh3XtWwZZuymjTaCe-5IKf5qug9dDGYPda-kG17L83vwHhpC1EhX5-J6aZMHBUVRrxjU9u-8YL6-bZdst2gah5OQeCVSuasJlcMqdjz_JAv3N6nVlhF5gR1fs3UCnUU29FrcNi3DptHp4cOQoVkDUbytKtXRbite4qvopo","keys":{"auth":"7SpGPq10XE2IMZv7_8SLpA","p256dh":"BKkMG1dc9sOwaBPfTcomctKjRUg4TEJGFtL2AOe7CjZ3SZ_BWAAv8ME26Jo8WVA1NRURL47jFXvGEVcWpEeBSKw"}};
+let sub = {"endpoint":"https://fcm.googleapis.com/fcm/send/fSrk425h9X4:APA91bHSIhLURnN8aKiN2YeEEju2A4UYrv8VoSqtzZ7Meo9MbQZ7cyxMiigrpRGfIUpOvPAO7d7ugtgSKp6CVQviXSi5ayFY0kZRuhG15baB7372fh3y-I2W3qDkUOsCJA99ZnWYldjk"};
 
 push.sendNotification(sub, 'test message');

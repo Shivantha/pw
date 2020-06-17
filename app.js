@@ -40,7 +40,7 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
                     } else {
                         swRegistration.pushManager.subscribe({
                                 userVisibleOnly: true,
-                                applicationServerKey: urlB64ToUint8Array(applicationKey)
+                                applicationServerKey: 'BDNL8-x4orwEk6E1W11_Kggw7onYkfnGe-dIlUA49LKa8oYkKEo_GYEBKye6-APUjPu3-yVQ8hcttZ1FDHjMDCE'
                             })
                             .then(function (subscription) {
                                 console.log(subscription);
@@ -66,5 +66,5 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
 
 // Send request to database for add new subscriber
 function saveSubscription(subscription) {
-   console.log(subscription.endpoint);
+   console.log(subscription);
 }
