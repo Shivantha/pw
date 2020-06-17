@@ -22,6 +22,7 @@ function urlB64ToUint8Array(base64String) {
 // Installing service worker
 if ('serviceWorker' in navigator && 'PushManager' in window) {
         console.log('Service Worker and Push is supported');
+        alert('okkkk');
 
         navigator.serviceWorker.register('./sw.js')
         .then(function (swReg) {
@@ -50,6 +51,7 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
 
 
 } else {
+    alert('not working');
     console.warn('Service Worker and Push are not supported');
 }
 
