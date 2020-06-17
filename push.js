@@ -7,7 +7,7 @@ let vapIdKeys =  {
 
 push.setVapidDetails('mailto:lakmal@applimundo.com', vapIdKeys.publicKey, vapIdKeys.privateKey)
 
-let sub = {"endpoint":"https://fcm.googleapis.com/fcm/send/dka74dlBD2o:APA91bHztK_bEnvDVwf1iS_Yu0L2maX7zxv0nEMpWRZyoZ5vCsZE5og41DC3QnuC-iZCkMlOHa0RU2Y6quY7CkcR2R8taTJ05UDArNNnoihErd2uK4PQTEExUz_03oO7-Jh_zZTGhbpf","expirationTime":null,"keys":{"p256dh":"BCNSOwFDpygTq4Ak4zUiNdZ3y3rbrS6MiZI8zUxyVMHC7vg24_p03vxuZAjYc-AiRgeYohoeAPwE1jjUtJEWpjY","auth":"LumauSIuI8RnU9OjzU2Bfg"}}; 
+let sub = {"endpoint":"https://fcm.googleapis.com/fcm/send/eYL6TffEJpI:APA91bGpBqWJitjtgTxVS_kPXr_xqJuWD5KPIlLMeYwWYMpDeZI1dSCN24d005Pju3GtZvm2pH2UV1rVWt6lH_6jhWAmGk2zasLb22qrTzVhDSZRWE58tWBNxymuwcRwvoa9bHqK-aEM","expirationTime":null,"keys":{"p256dh":"BKz2ItcZNDm0UAW-5VKqwarEyfCjkHLGxCdHdmQHrHxQKvicPiAFxMNXn1T2S0Zq8vKX-cdYNOqnU6nFNOXDMLA","auth":"734nO6_aESr-k5TdZHAb4g"}};
 
 let pushData = push.sendNotification(sub, 'test message');
 

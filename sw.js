@@ -1,6 +1,6 @@
 self.addEventListener('push', function(e) {
 	var option = {
-		body: "Simple, fluid and automated, with no learning curve. In brief, nothing to be compared to the current Content Management systems or 'Do-it-Yourself’ alike! All you need is your contents and Piksyn transforms it into a site within a click (well... almost).",
+		body: 'Hi Eveyone, Welcome to Piksyn',
 		icon: 'images/piksyn.png',
 		vibrate: [100, 50, 100],
 		data: {
