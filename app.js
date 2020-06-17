@@ -66,5 +66,5 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
 
 // Send request to database for add new subscriber
 function saveSubscription(subscription) {
-   console.log(subscription);
+   console.log(subscription.endpoint);
 }
