@@ -2,7 +2,6 @@ let isSubscribed = false;
 let swRegistration = null;
 let applicationKey = "BDNL8-x4orwEk6E1W11_Kggw7onYkfnGe-dIlUA49LKa8oYkKEo_GYEBKye6-APUjPu3-yVQ8hcttZ1FDHjMDCE";
 
-
 // Url Encription
 function urlB64ToUint8Array(base64String) {
     const padding = '='.repeat((4 - base64String.length % 4) % 4);
@@ -32,15 +31,8 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
                 .then(function (subscription) {
                     isSubscribed = !(subscription === null);
 
-                    console.log(isSubscribed);
-
-                    if (isSubscribed) {
-                        console.log('User already allowed for notification');
-                        //registerServiceWorker();
-                    } else {
-                        getAthenticationDetails();  
-                        console.log('still not allowed');
-                           
+                    if (!isSubscribed) {
+                        getAthenticationDetails();
                     }
                 })
         })
@@ -59,7 +51,7 @@ function getAthenticationDetails() {
         .then(function(registration) {
             const subscribeOptions = {
                 userVisibleOnly: true,
-                applicationServerKey: urlB64ToUint8Array('BDNL8-x4orwEk6E1W11_Kggw7onYkfnGe-dIlUA49LKa8oYkKEo_GYEBKye6-APUjPu3-yVQ8hcttZ1FDHjMDCE')
+                applicationServerKey: urlB64ToUint8Array(applicationKey)
             };
 
     return registration.pushManager.subscribe(subscribeOptions);
@@ -70,3 +62,18 @@ function getAthenticationDetails() {
   });
 
 }
+
+
+// if ('permissions' in navigator) {
+//     navigator.permissions.query({ name: 'notifications' }).then(function (notificationPerm) {
+//         notificationPerm.onchange = function () {
+        
+//                 if (notificationPerm.state == 'granted') {
+//                     getAthenticationDetails();
+//                     console.log("User decided to change his seettings. New permission: " + notificationPerm.state);
+                    
+//                 }
+        
+//         };
+//     });
+// }    

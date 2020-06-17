@@ -7,9 +7,25 @@ let vapIdKeys =  {
 
 push.setVapidDetails('mailto:lakmal@applimundo.com', vapIdKeys.publicKey, vapIdKeys.privateKey)
 
-let sub = {"endpoint":"https://updates.push.services.mozilla.com/wpush/v2/gAAAAABe6epWRS_aSyV62secLcxB-29OB44M1yikH_opWEpKp84Mlxncy3q4XqdRLm5ffLeZU0Y_Acv_6gw4ML0_Owy-EXh6GFn34bg6p_yLQQ6XlfIr_jlXROsjQxf3S2TsbCnBuM0hxn-YpAlrdk94SWdZwGP8icLvICAZqx1RN8ubFXkJ-Po","keys":{"auth":"LVNnPRZr2kNUBM8S2FWMYA","p256dh":"BCyxuKlbD9ENm1Mt1l6QrIYK_Yy4lkhF060x3mFRxSmBbG2b-gKv0b4Vs1qGU3BV_GH8STPOS9fa3J4VxGorPK4"}};
+let sub = {
+  "endpoint": "https://fcm.googleapis.com/fcm/send/dJubM3xfLa8:APA91bEMPJcratqwHDvfxQB1PwogBEtAY9RTueoq88f_b2Lme-2Kgvfz4rVz_KpXTOyU-ixbNst_W3q1W-E2Rl5aUMLbLPMjm9_3OrmFMPKNwBdDWR0CgN-QBIo1U26jysUPE_b8ryci",
+  "expirationTime": null,
+  "keys": {
+    "p256dh": "BFkT0JbmHYuYarIm8f67TjmIri3ekopkPFXHgsew6zxc9OrXehZx7yx9Xto4d08I1fKrFnuNQTQtsIh42RSbakw",
+    "auth": "GqZPuaJc6Qzk-h5JB8BVJA"
+  }
+}
 
 
+push.sendNotification(sub,'test')
+	.catch((err) => {
+        console.log(err); 
+    })
+    .then(function(success) {
+    	if (success.statusCode === 201) {
+    		console.log('sent push successfully.');
+        	console.log(success.statusCode);
+    	}
+        
+    });
 
-
-push.sendNotification(sub);
