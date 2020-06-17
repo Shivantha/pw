@@ -21,12 +21,11 @@ function urlB64ToUint8Array(base64String) {
 
 // Installing service worker
 if ('serviceWorker' in navigator && 'PushManager' in window) {
-    console.log('Service Worker and Push is supported');
+        console.log('Service Worker and Push is supported');
 
-    navigator.serviceWorker.register('./sw.js')
+        navigator.serviceWorker.register('./sw.js')
         .then(function (swReg) {
-            console.log('service worker registered');
-
+            
             swRegistration = swReg;
 
             swRegistration.pushManager.getSubscription()
@@ -36,35 +35,38 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
                     console.log(isSubscribed);
 
                     if (isSubscribed) {
-                        console.log('User is subscribed');
+                        console.log('User already allowed for notification');
+                        //registerServiceWorker();
                     } else {
-                        swRegistration.pushManager.subscribe({
-                                userVisibleOnly: true,
-                                applicationServerKey: 'BDNL8-x4orwEk6E1W11_Kggw7onYkfnGe-dIlUA49LKa8oYkKEo_GYEBKye6-APUjPu3-yVQ8hcttZ1FDHjMDCE'
-                            })
-                            .then(function (subscription) {
-                                console.log(subscription);
-                                console.log('User is subscribed');
-                                console.log('hahahahaha')
-
-                                saveSubscription(subscription);
-
-                                isSubscribed = true;
-                            })
-                            .catch(function (err) {
-                                console.log('Failed to subscribe user: ', err);
-                            })
+                        getAthenticationDetails();  
+                        console.log('still not allowed');
+                           
                     }
                 })
         })
         .catch(function (error) {
             console.error('Service Worker Error', error);
         });
+
+
 } else {
-    console.warn('Push messaging is not supported');
+    console.warn('Service Worker and Push are not supported');
 }
 
-// Send request to database for add new subscriber
-function saveSubscription(subscription) {
-   console.log(subscription);
+
+function getAthenticationDetails() {
+    navigator.serviceWorker.register('./sw.js')
+        .then(function(registration) {
+            const subscribeOptions = {
+                userVisibleOnly: true,
+                applicationServerKey: urlB64ToUint8Array('BDNL8-x4orwEk6E1W11_Kggw7onYkfnGe-dIlUA49LKa8oYkKEo_GYEBKye6-APUjPu3-yVQ8hcttZ1FDHjMDCE')
+            };
+
+    return registration.pushManager.subscribe(subscribeOptions);
+  })
+  .then(function(pushSubscription) {
+        console.log('Received PushSubscription: ', JSON.stringify(pushSubscription));
+        return pushSubscription;
+  });
+
 }
