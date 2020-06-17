@@ -7,11 +7,11 @@ self.addEventListener('push', function(e) {
 			dateOfArrival: Date.now(),
 			primaryKey: '2'
 		},
+		click_action : "https://www.google.com"
 		// actions: [
 		// 	{action: 'explore', title: 'Explore this world'},
 		// 	{action: 'close', title: 'Close'}
 		// ]
-		actions: [{action: "https://www.google.com", title: "Read Now"}]
 	};
 	e.waitUntil(
 		self.registration.showNotification("Hello Piksyn",option)
