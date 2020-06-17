@@ -7,11 +7,6 @@ let vapIdKeys =  {
 
 push.setVapidDetails('mailto:lakmal@applimundo.com', vapIdKeys.publicKey, vapIdKeys.privateKey)
 
-let sub = 	{"endpoint":"https://updates.push.services.mozilla.com/wpush/v2/gAAAAABe6XFVKZA9egJvxOde_VxIjSI1L18YavQnah-hqdo9ZqqLKadkzMShROtO8m-mmCrG4knwdxsYjvy__6ByV45mK1NVi2oN6ABvo3I7QWgqXeM554Cx_jiHrcL-3NzK_1N7UjbjToMAV4pEBpamntHNbR68H2nnADXjActluMPxa6qiwZY",
-		   		"keys":{
-		   			"auth":"39ptTq-nfGhkleCAgDndsw",
-		   			"p256dh":"BB_2t4Jn6wQqz25u0gHWdsjyYt0wlJtP3UbvZsE0VfOpzJV7mwHxrV41gclAbJeQCZOOjTt5YpSF5TXaoX-yTLE"
-		   		}
-		   	};
+let sub = {"endpoint":"https://updates.push.services.mozilla.com/wpush/v2/gAAAAABe6XmckJH2GMh3XtWwZZuymjTaCe-5IKf5qug9dDGYPda-kG17L83vwHhpC1EhX5-J6aZMHBUVRrxjU9u-8YL6-bZdst2gah5OQeCVSuasJlcMqdjz_JAv3N6nVlhF5gR1fs3UCnUU29FrcNi3DptHp4cOQoVkDUbytKtXRbite4qvopo","keys":{"auth":"7SpGPq10XE2IMZv7_8SLpA","p256dh":"BKkMG1dc9sOwaBPfTcomctKjRUg4TEJGFtL2AOe7CjZ3SZ_BWAAv8ME26Jo8WVA1NRURL47jFXvGEVcWpEeBSKw"}};
 
 push.sendNotification(sub, 'test message');
