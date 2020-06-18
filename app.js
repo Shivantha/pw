@@ -30,7 +30,6 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
             swRegistration.pushManager.getSubscription()
                 .then(function (subscription) {
                     isSubscribed = !(subscription === null);
-
                     if (!isSubscribed) {
                         getAthenticationDetails();
                     }
@@ -59,7 +58,10 @@ function getAthenticationDetails() {
   .then(function(pushSubscription) {
         console.log('Received PushSubscription: ', JSON.stringify(pushSubscription));
         return pushSubscription;
-  });
+  })
+    .catch(function (err) {
+        console.log('Failed to subscribe user: ', err);
+    })
 
 }
 
